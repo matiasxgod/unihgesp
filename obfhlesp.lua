@@ -1,12 +1,251 @@
-local v0=game.Players.LocalPlayer;local v1=game:GetService("UserInputService");local v2=game:GetService("Teams");local v3=game:GetService("RunService");local v4=Instance.new("ScreenGui");v4.Parent=v0:WaitForChild("PlayerGui");v4.Name="ESP_Toggle";v4.ResetOnSpawn=false;local v8=Instance.new("Frame");v8.Parent=v4;v8.Size=UDim2.new(997 -(915 + 82) ,622 -402 ,0 + 0 ,210 -50 );v8.Position=UDim2.new(1187.5 -(1069 + 118) , -(249 -139),0.5 -0 , -60);v8.BackgroundColor3=Color3.fromRGB(5 + 20 ,44 -19 ,30 + 0 );v8.BorderSizePixel=791 -(368 + 423) ;v8.Active=true;v8.Draggable=true;local v16=Instance.new("UICorner");v16.CornerRadius=UDim.new(0 -0 ,10);v16.Parent=v8;local v19=Instance.new("TextLabel");v19.Parent=v8;v19.Size=UDim2.new(19 -(10 + 8) ,0 -0 ,0,472 -(416 + 26) );v19.BackgroundColor3=Color3.fromRGB(35,111 -76 ,20 + 25 );v19.TextColor3=Color3.fromRGB(450 -195 ,693 -(145 + 293) ,685 -(44 + 386) );v19.Font=Enum.Font.GothamBold;v19.TextSize=1502 -(998 + 488) ;v19.Text="Highlight ESP Menu";v19.TextStrokeTransparency=0.8;local v29=Instance.new("TextButton");v29.Parent=v8;v29.Size=UDim2.new(0.8 + 0 ,0 + 0 ,772 -(201 + 571) ,40);v29.Position=UDim2.new(0.1,0,1138.4 -(116 + 1022) ,0);v29.BackgroundColor3=Color3.fromRGB(45,187 -142 ,33 + 22 );v29.TextColor3=Color3.fromRGB(930 -675 ,905 -650 ,1114 -(814 + 45) );v29.Font=Enum.Font.Gotham;v29.TextSize=39 -23 ;v29.Text="Enable ESP";local v39=Instance.new("UICorner");v39.CornerRadius=UDim.new(0,6);v39.Parent=v29;local v42=Instance.new("TextLabel");v42.Parent=v8;v42.Size=UDim2.new(1,0 + 0 ,0 + 0 ,905 -(261 + 624) );v42.Position=UDim2.new(0 -0 ,1080 -(1020 + 60) ,1423.9 -(630 + 793) ,0 -0 );v42.BackgroundTransparency=4 -3 ;v42.Font=Enum.Font.GothamBold;v42.TextSize=6 + 8 ;v42.TextStrokeTransparency=0.5 -0 ;v42.Text="Made by Matias";v42.TextXAlignment=Enum.TextXAlignment.Center;local v53={Color3.fromRGB(2168 -(1789 + 124) ,0,766 -(745 + 21) ),Color3.fromRGB(88 + 167 ,127,0 -0 ),Color3.fromRGB(1000 -745 ,3 + 252 ,0 + 0 ),Color3.fromRGB(0,255,0 -0 ),Color3.fromRGB(0 -0 ,1413 -(447 + 966) ,255),Color3.fromRGB(205 -130 ,1817 -(1703 + 114) ,831 -(376 + 325) ),Color3.fromRGB(732 -494 ,130,69 + 169 )};local v54=2 -1 ;v3.RenderStepped:Connect(function() v42.TextColor3=v53[v54];v54=v54 + (15 -(9 + 5)) ;if (v54> #v53) then v54=377 -(85 + 291) ;end end);local v55=false;local v56={};local v57=false;local v58={};local function v59(v87) if (v87 and v87:FindFirstChild("HumanoidRootPart")) then local v98=0;local v99;local v100;local v101;while true do if (v98==3) then v100.StudsOffset=Vector3.new(1265 -(243 + 1022) ,2,0 -0 );v100.AlwaysOnTop=true;v101=Instance.new("TextLabel");v98=4 + 0 ;end if (v98==(1182 -(1123 + 57))) then v100.Parent=v87;v100.Adornee=v87:FindFirstChild("Head");v100.Size=UDim2.new(0,200,0,41 + 9 );v98=257 -(163 + 91) ;end if (v98==5) then v101.TextColor3=Color3.fromRGB(255,2185 -(1869 + 61) ,72 + 183 );v101.Font=Enum.Font.GothamBold;v101.TextSize=31 -22 ;v98=6;end if (v98==(8 -2)) then v101.TextStrokeTransparency=0.5;v101.Text="Loading...";v56[v87]={v99,v100,v101};break;end if (v98==4) then v101.Parent=v100;v101.Size=UDim2.new(1475 -(1329 + 145) ,971 -(140 + 831) ,1851 -(1409 + 441) ,718 -(15 + 703) );v101.BackgroundTransparency=1 + 0 ;v98=443 -(262 + 176) ;end if (v98==(1722 -(345 + 1376))) then v99.OutlineTransparency=688 -(198 + 490) ;v99.OutlineColor=Color3.fromRGB(1126 -871 ,0 -0 ,1206 -(696 + 510) );v100=Instance.new("BillboardGui");v98=3 -1 ;end if (v98==0) then v99=Instance.new("Highlight");v99.Parent=v87;v99.FillTransparency=1263 -(1091 + 171) ;v98=1 + 0 ;end end end end local function v60() for v96,v97 in pairs(game.Players:GetPlayers()) do if ((v97~=v0) and v97.Character and v97.Character:FindFirstChild("HumanoidRootPart")) then local v104=v97.Character;local v105=v104:FindFirstChild("HumanoidRootPart");local v106=v104:FindFirstChild("Humanoid");local v107=v56[v104];if (v105 and v106 and v107) then local v135=0;local v136;local v137;local v138;local v139;while true do if (v135==0) then v136=(v105.Position-v0.Character.HumanoidRootPart.Position).Magnitude;v137=(v97.Team and v97.Team.Name) or "No Team" ;v135=3 -2 ;end if (v135==(6 -4)) then v107[3].Text=string.format("%s | %.1fm | %d/%d HP | %s",v137,v136,v138,v139,v97.Name);break;end if (v135==(375 -(123 + 251))) then v138=math.floor(v106.Health);v139=math.floor(v106.MaxHealth);v135=2;end end end end end end local function v61() local v88=0 -0 ;while true do if ((698 -(208 + 490))==v88) then for v110,v111 in pairs(v56) do for v140,v141 in pairs(v111) do v141:Destroy();end end v56={};v88=1;end if (v88==1) then for v112,v113 in pairs(game.Players:GetPlayers()) do if ((v113~=v0) and v113.Character) then local v144=0 + 0 ;while true do if (v144==(0 + 0)) then if (v57 and (v113.Team==v0.Team)) then continue;end v59(v113.Character);break;end end end end break;end end end local function v62() local v89=0;local v90;while true do if (v89==(836 -(660 + 176))) then v90=0 + 0 ;while true do if (v90==(203 -(14 + 188))) then if v55 then v61();v3.Heartbeat:Connect(function() if v55 then v60();end end);else local v149=675 -(534 + 141) ;while true do if (v149==0) then for v151,v152 in pairs(v56) do for v153,v154 in pairs(v152) do v154:Destroy();end end v56={};break;end end end break;end if (0==v90) then v55= not v55;v29.Text=(v55 and "Disable ESP") or "Enable ESP" ;v90=1 + 0 ;end end break;end end end v29.MouseButton1Click:Connect(v62);local v63=Instance.new("TextButton");v63.Parent=v8;v63.Size=UDim2.new(0.8,0 + 0 ,0,39 + 1 );v63.Position=UDim2.new(0.1,0 -0 ,0.6 -0 ,0 -0 );v63.BackgroundColor3=Color3.fromRGB(45,45,30 + 25 );v63.TextColor3=Color3.fromRGB(163 + 92 ,651 -(115 + 281) ,255);v63.Font=Enum.Font.Gotham;v63.TextSize=37 -21 ;v63.Text="Enable TeamCheck";local v72=Instance.new("UICorner");v72.CornerRadius=UDim.new(0 + 0 ,6);v72.Parent=v63;local function v75() local v91=0 -0 ;local v92;while true do if (0==v91) then v92=0 -0 ;while true do if (v92==(867 -(550 + 317))) then v57= not v57;v63.Text=(v57 and "Disable TeamCheck") or "Enable TeamCheck" ;v92=1 -0 ;end if (v92==(1 -0)) then v61();break;end end break;end end end v63.MouseButton1Click:Connect(v75);local v76=Instance.new("TextButton");v76.Parent=v8;v76.Size=UDim2.new(0 -0 ,315 -(134 + 151) ,0,1695 -(970 + 695) );v76.Position=UDim2.new(1, -(76 -36),1990 -(582 + 1408) ,17 -12 );v76.Text="X";v76.TextColor3=Color3.fromRGB(320 -65 ,255,255);v76.BackgroundColor3=Color3.fromRGB(255,0 -0 ,1824 -(1195 + 629) );v76.BorderSizePixel=0;v76.MouseButton1Click:Connect(function() local v93=0 -0 ;while true do if (v93==(244 -(187 + 54))) then v4:Destroy();break;end if (v93==1) then v29.Text="Enable ESP";v63.Text="Enable TeamCheck";v93=782 -(162 + 618) ;end if (v93==2) then for v114,v115 in pairs(v56) do for v142,v143 in pairs(v115) do v143:Destroy();end end v56={};v93=3;end if (v93==(0 + 0)) then v55=false;v57=false;v93=1 + 0 ;end end end);local v84=true;v1.InputBegan:Connect(function(v94) if ((v94.UserInputType==Enum.UserInputType.Keyboard) and (v94.KeyCode==Enum.KeyCode.RightControl)) then local v102=0 -0 ;local v103;while true do if (v102==(0 -0)) then v103=0 + 0 ;while true do if (v103==(1636 -(1373 + 263))) then v84= not v84;v4.Enabled=v84;break;end end break;end end end end);game.Players.PlayerAdded:Connect(function(v95) v95.CharacterAdded:Connect(function() if v55 then v61();end end);end);
--- ⚠️ WARNING: integrity protected!
---[[
- .____                  ________ ___.    _____                           __                
- |    |    __ _______   \_____  \\_ |___/ ____\_ __  ______ ____ _____ _/  |_  ___________ 
- |    |   |  |  \__  \   /   |   \| __ \   __\  |  \/  ___// ___\\__  \\   __\/  _ \_  __ \
- |    |___|  |  // __ \_/    |    \ \_\ \  | |  |  /\___ \\  \___ / __ \|  | (  <_> )  | \/
- |_______ \____/(____  /\_______  /___  /__| |____//____  >\___  >____  /__|  \____/|__|   
-         \/          \/         \/    \/                \/     \/     \/                   
-          \_Welcome to LuaObfuscator.com   (Alpha 0.10.8) ~  Much Love, Ferib 
+local player = game.Players.LocalPlayer
+local userInputService = game:GetService("UserInputService")
+local teams = game:GetService("Teams")
+local runService = game:GetService("RunService")
 
-]]--
+-- GUI Creation
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = player:WaitForChild("PlayerGui")
+screenGui.Name = "ESP_Toggle"
+screenGui.ResetOnSpawn = false
+
+-- Main Frame (Draggable)
+local frame = Instance.new("Frame")
+frame.Parent = screenGui
+frame.Size = UDim2.new(0, 220, 0, 160)
+frame.Position = UDim2.new(0.5, -110, 0.5, -60)
+frame.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
+frame.BorderSizePixel = 0
+frame.Active = true
+frame.Draggable = true
+
+local frameCorner = Instance.new("UICorner")
+frameCorner.CornerRadius = UDim.new(0, 10)
+frameCorner.Parent = frame
+
+-- Title Label
+local title = Instance.new("TextLabel")
+title.Parent = frame
+title.Size = UDim2.new(1, 0, 0, 30)
+title.BackgroundColor3 = Color3.fromRGB(35, 35, 45)
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.Font = Enum.Font.GothamBold
+title.TextSize = 16
+title.Text = "Highlight ESP Menu"
+title.TextStrokeTransparency = 0.8
+
+-- ESP Toggle Button
+local espButton = Instance.new("TextButton")
+espButton.Parent = frame
+espButton.Size = UDim2.new(0.8, 0, 0, 40)
+espButton.Position = UDim2.new(0.1, 0, 0.4, 0)
+espButton.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
+espButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+espButton.Font = Enum.Font.Gotham
+espButton.TextSize = 16
+espButton.Text = "Enable ESP"
+
+local buttonCorner = Instance.new("UICorner")
+buttonCorner.CornerRadius = UDim.new(0, 6)
+buttonCorner.Parent = espButton
+
+-- Footer Label (Rainbow Text)
+local footerLabel = Instance.new("TextLabel")
+footerLabel.Parent = frame
+footerLabel.Size = UDim2.new(1, 0, 0, 20)
+footerLabel.Position = UDim2.new(0, 0, 0.9, 0)
+footerLabel.BackgroundTransparency = 1
+footerLabel.Font = Enum.Font.GothamBold
+footerLabel.TextSize = 14
+footerLabel.TextStrokeTransparency = 0.5
+footerLabel.Text = "Made by Matias"
+footerLabel.TextXAlignment = Enum.TextXAlignment.Center
+
+local colors = {
+    Color3.fromRGB(255, 0, 0),   -- Red
+    Color3.fromRGB(255, 127, 0), -- Orange
+    Color3.fromRGB(255, 255, 0), -- Yellow
+    Color3.fromRGB(0, 255, 0),   -- Green
+    Color3.fromRGB(0, 0, 255),   -- Blue
+    Color3.fromRGB(75, 0, 130),  -- Indigo
+    Color3.fromRGB(238, 130, 238) -- Violet
+}
+
+local currentIndex = 1
+runService.RenderStepped:Connect(function()
+    footerLabel.TextColor3 = colors[currentIndex]
+    currentIndex = currentIndex + 1
+    if currentIndex > #colors then
+        currentIndex = 1
+    end
+end)
+
+-- ESP Logic
+local espEnabled = false
+local espObjects = {}
+local teamCheckEnabled = false
+local lastUpdated = {}
+
+local function applyESP(character)
+    if character and character:FindFirstChild("HumanoidRootPart") then
+        local highlight = Instance.new("Highlight")
+        highlight.Parent = character
+        highlight.FillTransparency = 1
+        highlight.OutlineTransparency = 0
+        highlight.OutlineColor = Color3.fromRGB(255, 0, 0)
+
+        local billboard = Instance.new("BillboardGui")
+        billboard.Parent = character
+        billboard.Adornee = character:FindFirstChild("Head")
+        billboard.Size = UDim2.new(0, 200, 0, 50)
+        billboard.StudsOffset = Vector3.new(0, 2, 0)
+        billboard.AlwaysOnTop = true
+
+        local textLabel = Instance.new("TextLabel")
+        textLabel.Parent = billboard
+        textLabel.Size = UDim2.new(1, 0, 1, 0)
+        textLabel.BackgroundTransparency = 1
+        textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        textLabel.Font = Enum.Font.GothamBold
+        textLabel.TextSize = 9
+        textLabel.TextStrokeTransparency = 0.5
+        textLabel.Text = "Loading..."
+
+        espObjects[character] = {highlight, billboard, textLabel}
+    end
+end
+
+local function updateESP()
+    for _, plr in pairs(game.Players:GetPlayers()) do
+        if plr ~= player and plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
+            local char = plr.Character
+            local rootPart = char:FindFirstChild("HumanoidRootPart")
+            local humanoid = char:FindFirstChild("Humanoid")
+            local espData = espObjects[char]
+
+            if rootPart and humanoid and espData then
+                local distance = (rootPart.Position - player.Character.HumanoidRootPart.Position).Magnitude
+                local teamName = plr.Team and plr.Team.Name or "No Team"
+                local health = math.floor(humanoid.Health)
+                local maxHealth = math.floor(humanoid.MaxHealth)
+                espData[3].Text = string.format("%s | %.1fm | %d/%d HP | %s", teamName, distance, health, maxHealth, plr.Name)
+            end
+        end
+    end
+end
+
+local function refreshESP()
+    -- Yeni ESP'yi sadece gerekli olduğunda ekleyelim
+    for _, data in pairs(espObjects) do
+        for _, obj in pairs(data) do
+            obj:Destroy()
+        end
+    end
+    espObjects = {}
+
+    for _, plr in pairs(game.Players:GetPlayers()) do
+        if plr ~= player and plr.Character then
+            -- Takım kontrolü aktifse ve oyuncu aynı takımda ise atla
+            if teamCheckEnabled and plr.Team == player.Team then
+                continue  -- Burada `return` yerine `continue` kullanıyoruz.
+            end
+            -- ESP'yi yalnızca farklı takımda olan oyunculara uygula
+            applyESP(plr.Character)
+        end
+    end
+end
+
+local function toggleESP()
+    espEnabled = not espEnabled
+    espButton.Text = espEnabled and "Disable ESP" or "Enable ESP"
+
+    if espEnabled then
+        refreshESP()
+        -- `RenderStepped` ile sürekli güncellemek yerine, sadece oyuncu değiştiğinde güncelleme yapalım.
+        runService.Heartbeat:Connect(function()
+            if espEnabled then
+                updateESP()
+            end
+        end)
+    else
+        for _, data in pairs(espObjects) do
+            for _, obj in pairs(data) do
+                obj:Destroy()
+            end
+        end
+        espObjects = {}
+    end
+end
+
+espButton.MouseButton1Click:Connect(toggleESP)
+
+-- TeamCheck Logic
+local teamCheckButton = Instance.new("TextButton")
+teamCheckButton.Parent = frame
+teamCheckButton.Size = UDim2.new(0.8, 0, 0, 40)
+teamCheckButton.Position = UDim2.new(0.1, 0, 0.6, 0)
+teamCheckButton.BackgroundColor3 = Color3.fromRGB(45, 45, 55)
+teamCheckButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+teamCheckButton.Font = Enum.Font.Gotham
+teamCheckButton.TextSize = 16
+teamCheckButton.Text = "Enable TeamCheck"
+
+local teamButtonCorner = Instance.new("UICorner")
+teamButtonCorner.CornerRadius = UDim.new(0, 6)
+teamButtonCorner.Parent = teamCheckButton
+
+local function toggleTeamCheck()
+    teamCheckEnabled = not teamCheckEnabled
+    teamCheckButton.Text = teamCheckEnabled and "Disable TeamCheck" or "Enable TeamCheck"
+    refreshESP()  -- Update ESP after toggling TeamCheck
+end
+
+teamCheckButton.MouseButton1Click:Connect(toggleTeamCheck)
+
+-- Close Button (X)
+local closeButton = Instance.new("TextButton")
+closeButton.Parent = frame
+closeButton.Size = UDim2.new(0, 30, 0, 30)
+closeButton.Position = UDim2.new(1, -40, 0, 5)
+closeButton.Text = "X"
+closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+closeButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+closeButton.BorderSizePixel = 0
+
+closeButton.MouseButton1Click:Connect(function()
+    -- Disable ESP and TeamCheck
+    espEnabled = false
+    teamCheckEnabled = false
+    espButton.Text = "Enable ESP"
+    teamCheckButton.Text = "Enable TeamCheck"
+
+    -- Destroy all ESP objects
+    for _, data in pairs(espObjects) do
+        for _, obj in pairs(data) do
+            obj:Destroy()
+        end
+    end
+    espObjects = {}
+
+    -- Destroy the GUI and unload the script
+    screenGui:Destroy()
+end)
+
+-- RightControl Toggle for GUI Visibility
+local guiVisible = true
+userInputService.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.Keyboard and input.KeyCode == Enum.KeyCode.RightControl then
+        guiVisible = not guiVisible
+        screenGui.Enabled = guiVisible
+    end
+end)
+
+-- Detect new players or respawned players
+game.Players.PlayerAdded:Connect(function(plr)
+    plr.CharacterAdded:Connect(function()
+        if espEnabled then
+            -- Only refresh ESP if ESP is enabled
+            refreshESP()
+        end
+    end)
+end)
