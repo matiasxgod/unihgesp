@@ -3,13 +3,13 @@ local userInputService = game:GetService("UserInputService")
 local teams = game:GetService("Teams")
 local runService = game:GetService("RunService")
 
--- GUI Creation
+
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = player:WaitForChild("PlayerGui")
 screenGui.Name = "ESP_Toggle"
 screenGui.ResetOnSpawn = false
 
--- Main Frame (Draggable)
+
 local frame = Instance.new("Frame")
 frame.Parent = screenGui
 frame.Size = UDim2.new(0, 220, 0, 160)
@@ -23,7 +23,7 @@ local frameCorner = Instance.new("UICorner")
 frameCorner.CornerRadius = UDim.new(0, 10)
 frameCorner.Parent = frame
 
--- Title Label
+
 local title = Instance.new("TextLabel")
 title.Parent = frame
 title.Size = UDim2.new(1, 0, 0, 30)
@@ -34,7 +34,7 @@ title.TextSize = 16
 title.Text = "Highlight ESP Menu"
 title.TextStrokeTransparency = 0.8
 
--- ESP Toggle Button
+
 local espButton = Instance.new("TextButton")
 espButton.Parent = frame
 espButton.Size = UDim2.new(0.8, 0, 0, 40)
@@ -49,7 +49,7 @@ local buttonCorner = Instance.new("UICorner")
 buttonCorner.CornerRadius = UDim.new(0, 6)
 buttonCorner.Parent = espButton
 
--- Footer Label (Rainbow Text)
+
 local footerLabel = Instance.new("TextLabel")
 footerLabel.Parent = frame
 footerLabel.Size = UDim2.new(1, 0, 0, 20)
@@ -80,8 +80,7 @@ runService.RenderStepped:Connect(function()
     end
 end)
 
--- ESP Logic
-local espEnabled = false
+-- ESP Logiclocal espEnabled = false
 local espObjects = {}
 local teamCheckEnabled = false
 local lastUpdated = {}
@@ -135,7 +134,7 @@ local function updateESP()
 end
 
 local function refreshESP()
-    -- Yeni ESP'yi sadece gerekli olduğunda ekleyelim
+
     for _, data in pairs(espObjects) do
         for _, obj in pairs(data) do
             obj:Destroy()
@@ -145,11 +144,11 @@ local function refreshESP()
 
     for _, plr in pairs(game.Players:GetPlayers()) do
         if plr ~= player and plr.Character then
-            -- Takım kontrolü aktifse ve oyuncu aynı takımda ise atla
+
             if teamCheckEnabled and plr.Team == player.Team then
-                continue  -- Burada `return` yerine `continue` kullanıyoruz.
+                continue  
             end
-            -- ESP'yi yalnızca farklı takımda olan oyunculara uygula
+
             applyESP(plr.Character)
         end
     end
@@ -161,7 +160,7 @@ local function toggleESP()
 
     if espEnabled then
         refreshESP()
-        -- `RenderStepped` ile sürekli güncellemek yerine, sadece oyuncu değiştiğinde güncelleme yapalım.
+
         runService.Heartbeat:Connect(function()
             if espEnabled then
                 updateESP()
@@ -179,7 +178,7 @@ end
 
 espButton.MouseButton1Click:Connect(toggleESP)
 
--- TeamCheck Logic
+
 local teamCheckButton = Instance.new("TextButton")
 teamCheckButton.Parent = frame
 teamCheckButton.Size = UDim2.new(0.8, 0, 0, 40)
@@ -197,12 +196,12 @@ teamButtonCorner.Parent = teamCheckButton
 local function toggleTeamCheck()
     teamCheckEnabled = not teamCheckEnabled
     teamCheckButton.Text = teamCheckEnabled and "Disable TeamCheck" or "Enable TeamCheck"
-    refreshESP()  -- Update ESP after toggling TeamCheck
+    refreshESP()  
 end
 
 teamCheckButton.MouseButton1Click:Connect(toggleTeamCheck)
 
--- Close Button (X)
+
 local closeButton = Instance.new("TextButton")
 closeButton.Parent = frame
 closeButton.Size = UDim2.new(0, 30, 0, 30)
@@ -213,13 +212,13 @@ closeButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 closeButton.BorderSizePixel = 0
 
 closeButton.MouseButton1Click:Connect(function()
-    -- Disable ESP and TeamCheck
+
     espEnabled = false
     teamCheckEnabled = false
     espButton.Text = "Enable ESP"
     teamCheckButton.Text = "Enable TeamCheck"
 
-    -- Destroy all ESP objects
+
     for _, data in pairs(espObjects) do
         for _, obj in pairs(data) do
             obj:Destroy()
@@ -227,11 +226,11 @@ closeButton.MouseButton1Click:Connect(function()
     end
     espObjects = {}
 
-    -- Destroy the GUI and unload the script
+
     screenGui:Destroy()
 end)
 
--- RightControl Toggle for GUI Visibility
+
 local guiVisible = true
 userInputService.InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.Keyboard and input.KeyCode == Enum.KeyCode.RightControl then
@@ -240,11 +239,11 @@ userInputService.InputBegan:Connect(function(input)
     end
 end)
 
--- Detect new players or respawned players
+
 game.Players.PlayerAdded:Connect(function(plr)
     plr.CharacterAdded:Connect(function()
         if espEnabled then
-            -- Only refresh ESP if ESP is enabled
+
             refreshESP()
         end
     end)
